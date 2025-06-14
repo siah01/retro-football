@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Football</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        #gameCanvas {
+            border: 2px solid #444;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 10px;
+            color: #aaa;
+        }
+        .mobile-controls {
+            display: none;
+            margin-top: 20px;
+        }
+        @media (max-width: 1200px) {
+            #gameCanvas {
+                width: 90%;
+                height: auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-controls {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                width: 300px;
+            }
+            .control-btn {
+                padding: 15px;
+                background-color: #444;
+                border: none;
+                color: white;
+                border-radius: 5px;
+                font-size: 16px;
+                touch-action: manipulation;
+            }
+            .space-btn {
+                grid-column: span 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="1160" height="600"></canvas>
+    
+    <div class="instructions">
+        <p>Use arrow keys to move, number keys (1-3) to select receivers, SPACE to throw/continue, ESC to cancel pass</p>
+    </div>
+    
+    <div class="mobile-controls">
+        <button class="control-btn" id="upBtn">↑</button>
+        <button class="control-btn" id="num1Btn">1</button>
+        <button class="control-btn" id="num2Btn">2</button>
+        <button class="control-btn" id="leftBtn">←</button>
+        <button class="control-btn" id="downBtn">↓</button>
+        <button class="control-btn" id="rightBtn">→</button>
+        <button class="control-btn" id="num3Btn">3</button>
+        <button class="control-btn" id="num4Btn">4</button>
+        <button class="control-btn" id="escBtn">ESC</button>
+        <button class="control-btn space-btn" id="spaceBtn">SPACE</button>
+    </div>
+    
+    <script src="/static/game.js"></script>
+</body>
+</html>
